@@ -1,0 +1,191 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "numberChecks": [
+    {
+      "case": "Claude Pro costs $20/month. → Claude Pro berharga $200 sebulan.",
+      "flagged": true,
+      "expected": true,
+      "pass": true,
+      "issues": [
+        "number_omitted_or_changed",
+        "number_invented"
+      ]
+    },
+    {
+      "case": "Complete all 5 steps. → Lengkapkan 4 langkah.",
+      "flagged": true,
+      "expected": true,
+      "pass": true,
+      "issues": [
+        "number_omitted_or_changed",
+        "number_invented"
+      ]
+    },
+    {
+      "case": "Updated in 2026. → Dikemas kini pada 2025.",
+      "flagged": true,
+      "expected": true,
+      "pass": true,
+      "issues": [
+        "number_omitted_or_changed",
+        "number_invented"
+      ]
+    },
+    {
+      "case": "Save 20% today. → Jimat 20% hari ini.",
+      "flagged": false,
+      "expected": false,
+      "pass": true,
+      "issues": []
+    }
+  ],
+  "judgeChecks": [
+    {
+      "why": "may→will (claim strength)",
+      "flagged": true,
+      "expected": true,
+      "pass": true,
+      "issues": [
+        "semantic_nonequivalence"
+      ]
+    },
+    {
+      "why": "dropped condition (no refunds)",
+      "flagged": true,
+      "expected": true,
+      "pass": true,
+      "issues": [
+        "semantic_nonequivalence"
+      ]
+    },
+    {
+      "why": "faithful",
+      "flagged": false,
+      "expected": false,
+      "pass": true,
+      "issues": []
+    }
+  ],
+  "chunking": {
+    "url": "https://academy.techpresso.co/prompts/claude-prompts",
+    "bodyChars": 107991,
+    "chunkCount": 16,
+    "boundaries": [
+      5366,
+      7994,
+      7360,
+      6464,
+      6080,
+      7001,
+      6345,
+      7356,
+      6063,
+      6921,
+      6921,
+      6049,
+      7993,
+      5821,
+      7998,
+      6259
+    ],
+    "noLoss": true,
+    "detail": "16 chunks, lossless",
+    "firstChunkTranslated": true
+  },
+  "regression": [
+    {
+      "name": "protected-name-kept",
+      "clean": true,
+      "expectClean": true,
+      "pass": true,
+      "issues": []
+    },
+    {
+      "name": "protected-name-lost",
+      "clean": false,
+      "expectClean": false,
+      "pass": true,
+      "issues": [
+        "protected_name_lost"
+      ]
+    },
+    {
+      "name": "placeholder-kept",
+      "clean": true,
+      "expectClean": true,
+      "pass": true,
+      "issues": []
+    },
+    {
+      "name": "placeholder-lost",
+      "clean": false,
+      "expectClean": false,
+      "pass": true,
+      "issues": [
+        "placeholder_mismatch"
+      ]
+    },
+    {
+      "name": "vi-diacritics-ok",
+      "clean": true,
+      "expectClean": true,
+      "pass": true,
+      "issues": []
+    },
+    {
+      "name": "vi-diacritics-stripped",
+      "clean": false,
+      "expectClean": false,
+      "pass": true,
+      "issues": [
+        "vi_low_diacritics"
+      ]
+    },
+    {
+      "name": "th-no-script",
+      "clean": false,
+      "expectClean": false,
+      "pass": true,
+      "issues": [
+        "untranslated_body",
+        "th_no_thai_script"
+      ]
+    },
+    {
+      "name": "ms-indonesian",
+      "clean": false,
+      "expectClean": false,
+      "pass": true,
+      "issues": [
+        "ms_indonesian_contamination"
+      ]
+    }
+  ],
+  "throughput": [
+    {
+      "concurrency": 1,
+      "calls": 6,
+      "s429": 0,
+      "wallSec": 15.8,
+      "perMin": 23
+    },
+    {
+      "concurrency": 2,
+      "calls": 6,
+      "s429": 0,
+      "wallSec": 6.7,
+      "perMin": 54
+    },
+    {
+      "concurrency": 3,
+      "calls": 18,
+      "s429": 12,
+      "wallSec": 26.6,
+      "perMin": 14
+    }
+  ],
+  "totals": {
+    "apiCalls": 34,
+    "total429": 12
+  }
+}

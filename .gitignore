@@ -47,3 +47,14 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# Payload uploads (local media)
+public/uploads/
+
+# Payload-generated agent rule files (regenerated on dev)
+AGENTS.md
+CLAUDE.md
+
+
+# Payload uploads (local media)
+public/uploads/

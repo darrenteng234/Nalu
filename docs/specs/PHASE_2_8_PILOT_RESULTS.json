@@ -1,0 +1,583 @@
+{
+  "report": {
+    "model": "gemini-3.1-flash-lite",
+    "bodyMax": 24000,
+    "entities": [
+      {
+        "url": "https://academy.techpresso.co/tools/gumloop",
+        "type": "tool",
+        "httpStatus": 200,
+        "sourceHash": "515a807e",
+        "retrievedAt": "2026-09-07T09:56:42.370Z",
+        "enFields": 3,
+        "bodyChars": 1143,
+        "bodyTranslatedChars": 1143,
+        "headings": 1,
+        "faq": 0,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/courses/introduction-to-claude",
+        "type": "tutorial",
+        "httpStatus": 200,
+        "sourceHash": "a7d4c461",
+        "retrievedAt": "2026-09-07T09:56:45.983Z",
+        "enFields": 3,
+        "bodyChars": 1521,
+        "bodyTranslatedChars": 1521,
+        "headings": 5,
+        "faq": 0,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/courses/creating-simple-video-games-with-claude",
+        "type": "tutorial",
+        "httpStatus": 200,
+        "sourceHash": "966f3f45",
+        "retrievedAt": "2026-09-07T09:56:49.868Z",
+        "enFields": 3,
+        "bodyChars": 1615,
+        "bodyTranslatedChars": 1615,
+        "headings": 5,
+        "faq": 0,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/reviews/is-claude-pro-worth-it",
+        "type": "review",
+        "httpStatus": 200,
+        "sourceHash": "a5479f67",
+        "retrievedAt": "2026-09-07T09:56:53.350Z",
+        "enFields": 7,
+        "bodyChars": 13326,
+        "bodyTranslatedChars": 13326,
+        "headings": 17,
+        "faq": 7,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/reviews/is-chatgpt-plus-worth-it",
+        "type": "review",
+        "httpStatus": 200,
+        "sourceHash": "b7cb5dd3",
+        "retrievedAt": "2026-09-07T09:56:56.934Z",
+        "enFields": 7,
+        "bodyChars": 10499,
+        "bodyTranslatedChars": 10499,
+        "headings": 17,
+        "faq": 7,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/compare-tools/chatgpt-vs-claude",
+        "type": "compare_tools",
+        "httpStatus": 200,
+        "sourceHash": "2919244f",
+        "retrievedAt": "2026-09-07T09:57:00.342Z",
+        "enFields": 7,
+        "bodyChars": 3763,
+        "bodyTranslatedChars": 3763,
+        "headings": 8,
+        "faq": 6,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/compare/udemy-ai-courses",
+        "type": "compare_platform",
+        "httpStatus": 200,
+        "sourceHash": "5a5e4ad4",
+        "retrievedAt": "2026-09-07T09:57:03.745Z",
+        "enFields": 7,
+        "bodyChars": 3499,
+        "bodyTranslatedChars": 3499,
+        "headings": 10,
+        "faq": 3,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/prompts/claude-prompts",
+        "type": "prompt_page",
+        "httpStatus": 200,
+        "sourceHash": "41a9e8e0",
+        "retrievedAt": "2026-09-07T09:57:07.725Z",
+        "enFields": 7,
+        "bodyChars": 107991,
+        "bodyTranslatedChars": 24000,
+        "headings": 6,
+        "faq": 5,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/prompts/grok-bot-prompts-sales",
+        "type": "prompt_page",
+        "httpStatus": 200,
+        "sourceHash": "f7ce0cb5",
+        "retrievedAt": "2026-09-07T09:57:10.923Z",
+        "enFields": 7,
+        "bodyChars": 28566,
+        "bodyTranslatedChars": 24000,
+        "headings": 7,
+        "faq": 5,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/collections/learn-claude",
+        "type": "collection",
+        "httpStatus": 200,
+        "sourceHash": "9fa6fbad",
+        "retrievedAt": "2026-09-07T09:57:14.882Z",
+        "enFields": 3,
+        "bodyChars": 9619,
+        "bodyTranslatedChars": 9619,
+        "headings": 3,
+        "faq": 0,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/ai-for/marketers",
+        "type": "role_page",
+        "httpStatus": 200,
+        "sourceHash": "334e44a2",
+        "retrievedAt": "2026-09-07T09:57:18.261Z",
+        "enFields": 7,
+        "bodyChars": 6850,
+        "bodyTranslatedChars": 6850,
+        "headings": 13,
+        "faq": 5,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/free-tools/prompt-optimizer",
+        "type": "free_tool",
+        "httpStatus": 200,
+        "sourceHash": "6c98e97f",
+        "retrievedAt": "2026-09-07T09:57:21.260Z",
+        "enFields": 7,
+        "bodyChars": 2816,
+        "bodyTranslatedChars": 2816,
+        "headings": 6,
+        "faq": 5,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/blog/grok-bot-for-gtm",
+        "type": "blog_post",
+        "httpStatus": 200,
+        "sourceHash": "11800986",
+        "retrievedAt": "2026-09-07T09:57:24.744Z",
+        "enFields": 3,
+        "bodyChars": 6181,
+        "bodyTranslatedChars": 6181,
+        "headings": 9,
+        "faq": 0,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/community/reconcile-expenses-from-receipts-wagjdx",
+        "type": "community_post",
+        "httpStatus": 200,
+        "sourceHash": "29fd9c9a",
+        "retrievedAt": "2026-09-07T09:57:28.141Z",
+        "enFields": 3,
+        "bodyChars": 2829,
+        "bodyTranslatedChars": 2829,
+        "headings": 2,
+        "faq": 0,
+        "completeness": "complete",
+        "missing": []
+      },
+      {
+        "url": "https://academy.techpresso.co/dashboard",
+        "type": "GATED-control",
+        "result": "REFUSED (gated)"
+      }
+    ],
+    "gatedRefused": 1,
+    "qa": {
+      "ms": {
+        "entities": 14,
+        "p0": 0,
+        "p1": 0,
+        "p2": 0
+      },
+      "th": {
+        "entities": 14,
+        "p0": 0,
+        "p1": 0,
+        "p2": 11
+      },
+      "vi": {
+        "entities": 14,
+        "p0": 0,
+        "p1": 0,
+        "p2": 0
+      }
+    },
+    "translationFailures": 0,
+    "failure": {
+      "isolated": true,
+      "audit": "status=404 retryable=false",
+      "timeoutRetried": true,
+      "translationJobFailures": 0,
+      "note": "field-level failures isolated; entity still QA'd on delivered fields"
+    },
+    "rateLimit": {
+      "total429": 103,
+      "retries": 121,
+      "backoff": "exponential 1s→16s cap",
+      "cacheHits": 0,
+      "concurrency": 2,
+      "permanentFailures": 0
+    },
+    "idempotency": {
+      "firstRun": {
+        "translated": 3,
+        "skipped": 0
+      },
+      "rerunUnchanged": {
+        "translated": 0,
+        "skipped": 3
+      },
+      "afterSemanticChange": {
+        "translated": 1,
+        "skipped": 2
+      },
+      "afterNonSemanticChange": {
+        "translated": 0,
+        "skipped": 3
+      },
+      "ok": true
+    },
+    "cost": {
+      "model": "gemini-3.1-flash-lite",
+      "calls": 327,
+      "retries": 121,
+      "inputTokens": 53946,
+      "outputTokens": 55436,
+      "avgLatencyMs": 1914,
+      "byLocale": {
+        "ms": {
+          "in": 18706,
+          "out": 17456,
+          "calls": 70
+        },
+        "th": {
+          "in": 17620,
+          "out": 19098,
+          "calls": 68
+        },
+        "vi": {
+          "in": 17620,
+          "out": 18882,
+          "calls": 68
+        }
+      },
+      "rate": {
+        "inPer1M": 0.25,
+        "outPer1M": 1.5,
+        "note": "SPEC-QUOTED, UNVERIFIED — reverify actual Google pricing"
+      },
+      "pilotCostUSD": 0.09664,
+      "costPerEntityUSD": 0.0069,
+      "projection": {
+        "100": 0.69,
+        "1000": 6.9,
+        "full~2056": 14.19,
+        "note": "×3 locales already included in per-entity; label = ESTIMATE"
+      }
+    },
+    "throughput": {
+      "wallSeconds": 780,
+      "apiCalls": 327,
+      "cacheHits": 2,
+      "effectiveFieldsPerMin": 25
+    }
+  },
+  "entityQa": [
+    {
+      "type": "tool",
+      "url": "https://academy.techpresso.co/tools/gumloop",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "tool",
+      "url": "https://academy.techpresso.co/tools/gumloop",
+      "loc": "th",
+      "issues": []
+    },
+    {
+      "type": "tool",
+      "url": "https://academy.techpresso.co/tools/gumloop",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "tutorial",
+      "url": "https://academy.techpresso.co/courses/introduction-to-claude",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "tutorial",
+      "url": "https://academy.techpresso.co/courses/introduction-to-claude",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body"
+      ]
+    },
+    {
+      "type": "tutorial",
+      "url": "https://academy.techpresso.co/courses/introduction-to-claude",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "tutorial",
+      "url": "https://academy.techpresso.co/courses/creating-simple-video-games-with-claude",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "tutorial",
+      "url": "https://academy.techpresso.co/courses/creating-simple-video-games-with-claude",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body"
+      ]
+    },
+    {
+      "type": "tutorial",
+      "url": "https://academy.techpresso.co/courses/creating-simple-video-games-with-claude",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "review",
+      "url": "https://academy.techpresso.co/reviews/is-claude-pro-worth-it",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "review",
+      "url": "https://academy.techpresso.co/reviews/is-claude-pro-worth-it",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body",
+        "P2:th_spacing:faq_a0"
+      ]
+    },
+    {
+      "type": "review",
+      "url": "https://academy.techpresso.co/reviews/is-claude-pro-worth-it",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "review",
+      "url": "https://academy.techpresso.co/reviews/is-chatgpt-plus-worth-it",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "review",
+      "url": "https://academy.techpresso.co/reviews/is-chatgpt-plus-worth-it",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body",
+        "P2:th_spacing:faq_a0"
+      ]
+    },
+    {
+      "type": "review",
+      "url": "https://academy.techpresso.co/reviews/is-chatgpt-plus-worth-it",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "compare_tools",
+      "url": "https://academy.techpresso.co/compare-tools/chatgpt-vs-claude",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "compare_tools",
+      "url": "https://academy.techpresso.co/compare-tools/chatgpt-vs-claude",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body"
+      ]
+    },
+    {
+      "type": "compare_tools",
+      "url": "https://academy.techpresso.co/compare-tools/chatgpt-vs-claude",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "compare_platform",
+      "url": "https://academy.techpresso.co/compare/udemy-ai-courses",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "compare_platform",
+      "url": "https://academy.techpresso.co/compare/udemy-ai-courses",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body"
+      ]
+    },
+    {
+      "type": "compare_platform",
+      "url": "https://academy.techpresso.co/compare/udemy-ai-courses",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "prompt_page",
+      "url": "https://academy.techpresso.co/prompts/claude-prompts",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "prompt_page",
+      "url": "https://academy.techpresso.co/prompts/claude-prompts",
+      "loc": "th",
+      "issues": []
+    },
+    {
+      "type": "prompt_page",
+      "url": "https://academy.techpresso.co/prompts/claude-prompts",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "prompt_page",
+      "url": "https://academy.techpresso.co/prompts/grok-bot-prompts-sales",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "prompt_page",
+      "url": "https://academy.techpresso.co/prompts/grok-bot-prompts-sales",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:faq_a1"
+      ]
+    },
+    {
+      "type": "prompt_page",
+      "url": "https://academy.techpresso.co/prompts/grok-bot-prompts-sales",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "collection",
+      "url": "https://academy.techpresso.co/collections/learn-claude",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "collection",
+      "url": "https://academy.techpresso.co/collections/learn-claude",
+      "loc": "th",
+      "issues": []
+    },
+    {
+      "type": "collection",
+      "url": "https://academy.techpresso.co/collections/learn-claude",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "role_page",
+      "url": "https://academy.techpresso.co/ai-for/marketers",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "role_page",
+      "url": "https://academy.techpresso.co/ai-for/marketers",
+      "loc": "th",
+      "issues": []
+    },
+    {
+      "type": "role_page",
+      "url": "https://academy.techpresso.co/ai-for/marketers",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "free_tool",
+      "url": "https://academy.techpresso.co/free-tools/prompt-optimizer",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "free_tool",
+      "url": "https://academy.techpresso.co/free-tools/prompt-optimizer",
+      "loc": "th",
+      "issues": []
+    },
+    {
+      "type": "free_tool",
+      "url": "https://academy.techpresso.co/free-tools/prompt-optimizer",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "blog_post",
+      "url": "https://academy.techpresso.co/blog/grok-bot-for-gtm",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "blog_post",
+      "url": "https://academy.techpresso.co/blog/grok-bot-for-gtm",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body"
+      ]
+    },
+    {
+      "type": "blog_post",
+      "url": "https://academy.techpresso.co/blog/grok-bot-for-gtm",
+      "loc": "vi",
+      "issues": []
+    },
+    {
+      "type": "community_post",
+      "url": "https://academy.techpresso.co/community/reconcile-expenses-from-receipts-wagjdx",
+      "loc": "ms",
+      "issues": []
+    },
+    {
+      "type": "community_post",
+      "url": "https://academy.techpresso.co/community/reconcile-expenses-from-receipts-wagjdx",
+      "loc": "th",
+      "issues": [
+        "P2:th_spacing:body"
+      ]
+    },
+    {
+      "type": "community_post",
+      "url": "https://academy.techpresso.co/community/reconcile-expenses-from-receipts-wagjdx",
+      "loc": "vi",
+      "issues": []
+    }
+  ]
+}
