@@ -34,7 +34,10 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
   db: postgresAdapter({
-    pool: { connectionString: process.env.DATABASE_URI || "" },
+    // Accept either name: local/dev uses DATABASE_URI; Railway's Postgres plugin
+    // injects DATABASE_URL. Falling back prevents an empty connection string
+    // (which fails Payload init and 500s every DB-backed route) on Railway.
+    pool: { connectionString: process.env.DATABASE_URI || process.env.DATABASE_URL || "" },
   }),
   // Jobs queue (docs/specs/03 pipeline, docs/specs/05 scheduled sync) — tasks
   // are registered in a later phase; the queue infra is enabled here.

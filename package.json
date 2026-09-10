@@ -1,8 +1,8 @@
 {
-  "name": "techpresso-academy-i18n",
+  "name": "nalu",
   "version": "0.1.0",
   "private": true,
-  "description": "Multilingual (Asian-language) reproduction of the public Techpresso Academy experience. Data-first, Next.js + Payload + Postgres.",
+  "description": "NALU — AI Tools & Workflows Platform. Multilingual (Malay-first), data-first Next.js + Payload CMS + PostgreSQL with SEO/QA, Studio publishing, and commercial validation. Originally developed by studying the public Techpresso Academy experience.",
   "license": "UNLICENSED",
   "engines": {
     "node": "^24.15.0"
