@@ -34,10 +34,10 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
   db: postgresAdapter({
-    // Accept either name: local/dev uses DATABASE_URI; Railway's Postgres plugin
-    // injects DATABASE_URL. Falling back prevents an empty connection string
-    // (which fails Payload init and 500s every DB-backed route) on Railway.
-    pool: { connectionString: process.env.DATABASE_URI || process.env.DATABASE_URL || "" },
+    // DATABASE_URL (Railway's Postgres plugin) takes priority; DATABASE_URI is the
+    // local/dev fallback. Order matters: a stale localhost DATABASE_URI must NOT
+    // override Railway's DATABASE_URL in production.
+    pool: { connectionString: process.env.DATABASE_URL || process.env.DATABASE_URI || "" },
   }),
   // Jobs queue (docs/specs/03 pipeline, docs/specs/05 scheduled sync) — tasks
   // are registered in a later phase; the queue infra is enabled here.
