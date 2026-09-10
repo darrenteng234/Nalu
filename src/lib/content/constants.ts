@@ -15,6 +15,11 @@ export const CONTENT_TYPES = [
   "community_post",
   "free_tool",
   "article", // user-authored (Phase 2.11) — same Source+Variant model + detail template
+  // Phase 5 (CEO product V1): the job-first product layers. All reuse the
+  // Source+Variant model + render infra — no new backend collections.
+  "solution", // "How do I accomplish X?" — the job entry point
+  "teach_ai", // signature NALU method: make AI work like you (multi-step system)
+  "workflow", // practical multi-step recipe to complete a recurring job
 ] as const;
 export type ContentType = (typeof CONTENT_TYPES)[number];
 

@@ -26,6 +26,9 @@ export const REQUIRED_FIELDS: Record<ContentType, FieldReq[]> = {
   free_tool: ["title", "description", "canonical"],
   prompt: ["title"],
   article: ["title", "description", "canonical", "body"],
+  solution: ["title", "description", "canonical", "body"],
+  teach_ai: ["title", "description", "canonical", "headings"],
+  workflow: ["title", "description", "canonical", "headings"],
 };
 
 export interface CompletenessResult { ok: boolean; missing: string[]; status: "complete" | "EXTRACTION_FAILED" }

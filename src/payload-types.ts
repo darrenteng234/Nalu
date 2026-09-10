@@ -210,7 +210,10 @@ export interface Source {
     | 'blog_post'
     | 'community_post'
     | 'free_tool'
-    | 'article';
+    | 'article'
+    | 'solution'
+    | 'teach_ai'
+    | 'workflow';
   sourceVersion: number;
   /**
    * { fieldKey: sha256 } for field-level change detection.
@@ -299,7 +302,10 @@ export interface Variant {
     | 'blog_post'
     | 'community_post'
     | 'free_tool'
-    | 'article';
+    | 'article'
+    | 'solution'
+    | 'teach_ai'
+    | 'workflow';
   status: 'draft' | 'mt_generated' | 'in_review' | 'approved' | 'published' | 'archived';
   publishedAt?: string | null;
   title: string;

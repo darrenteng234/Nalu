@@ -6,6 +6,7 @@ import { entityPath } from "@/lib/content/segments";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { jsonLd } from "@/lib/seo/jsonld";
 import { Container, EntityView, RelatedList } from "@/components/templates/Views";
+import { PromptView, TeachAIView, WorkflowView } from "@/components/templates/ProductViews";
 import { t } from "@/lib/i18n/ui";
 
 /** Which relationship names to surface as "Related" per type. */
@@ -18,6 +19,9 @@ const REL_FOR: Partial<Record<ContentType, string[]>> = {
   compare_tools: ["tool"],
   free_tool: ["related"],
   community_post: ["related"],
+  solution: ["workflow", "prompt", "related"],
+  teach_ai: ["related", "prompt"],
+  workflow: ["tool", "prompt", "related"],
 };
 
 export async function detailMetadata(type: ContentType, locale: string, slug: string): Promise<Metadata> {
@@ -52,10 +56,20 @@ export async function DetailPage({ type, locale, slug }: { type: ContentType; lo
     .map((r) => ({ ...r, tool: toolBySlug.get(r.toolSlug) }))
     .filter((r) => r.tool);
 
+  // Type-specific template (Phase 5 §8/§9/§11). Others use the generic EntityView.
+  const relatedNode = <RelatedList locale={locale} title={t(locale, "related")} entities={related} />;
+  const body =
+    type === "prompt_page" ? <PromptView entity={entity} /> :
+    type === "teach_ai" ? <TeachAIView entity={entity} /> :
+    type === "workflow" ? <WorkflowView entity={entity} /> :
+    <EntityView entity={entity} related={relatedNode} />;
+  const showRelatedSeparately = type === "prompt_page" || type === "teach_ai" || type === "workflow";
+
   return (
     <Container narrow>
       <div style={{ padding: "2.5rem 0" }}>
-        <EntityView entity={entity} related={<RelatedList locale={locale} title={t(locale, "related")} entities={related} />} />
+        {body}
+        {showRelatedSeparately ? relatedNode : null}
         {cta.length ? (
           <section aria-label="Recommended tools" style={{ marginTop: "2.5rem", maxWidth: "68ch", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             <div style={{ fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--text-secondary)" }}>

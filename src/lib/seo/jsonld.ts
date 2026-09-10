@@ -24,6 +24,14 @@ export function jsonLd(entity: ResolvedEntity): object[] {
         ...(entity.source.neutralData?.heroImageUrl ? { image: entity.source.neutralData.heroImageUrl as string } : {}),
       });
       break;
+    case "solution":
+      blocks.push({ "@context": "https://schema.org", "@type": "Article", ...base, author, publisher: org, datePublished: entity.source.datePublished, dateModified: entity.source.dateModified });
+      break;
+    case "workflow":
+    case "teach_ai":
+      blocks.push({ "@context": "https://schema.org", "@type": "HowTo", ...base,
+        ...(entity.sections?.length ? { step: entity.sections.map((s, i) => ({ "@type": "HowToStep", position: i + 1, name: s.heading || `Step ${i + 1}`, text: s.body || s.heading || "" })) } : {}) });
+      break;
     case "tutorial":
       blocks.push({ "@context": "https://schema.org", "@type": "Course", ...base, provider: org });
       break;

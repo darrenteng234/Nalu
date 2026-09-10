@@ -5,14 +5,15 @@ type P = { params: Promise<{ locale: string }> };
 
 export default async function Home({ params }: P) {
   const { locale } = await params;
-  // Featured = a small mix of published content in this locale.
-  const [tools, tutorials] = await Promise.all([
+  // Job-first homepage: small curated sets per product layer (empty states are fine).
+  const [prompts, workflows, tools] = await Promise.all([
+    listPublishedByType("prompt_page", locale, 6),
+    listPublishedByType("workflow", locale, 3),
     listPublishedByType("tool", locale, 3),
-    listPublishedByType("tutorial", locale, 3),
   ]);
   return (
     <Container>
-      <HomeView locale={locale} featured={[...tutorials, ...tools].slice(0, 6)} />
+      <HomeView locale={locale} prompts={prompts} workflows={workflows} tools={tools} />
     </Container>
   );
 }

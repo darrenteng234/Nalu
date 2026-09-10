@@ -20,6 +20,9 @@ export const TYPE_SEGMENT: Record<ContentType, string> = {
   community_post: "community",
   free_tool: "free-tools",
   article: "articles",
+  solution: "solutions",
+  teach_ai: "teach-ai",
+  workflow: "workflows",
 };
 
 export const SEGMENT_TYPE: Record<string, ContentType> = Object.entries(TYPE_SEGMENT).reduce(

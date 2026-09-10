@@ -97,7 +97,11 @@ export function EntityView({ entity, related }: { entity: ResolvedEntity; relate
 
 export function HubView({ locale, type, entities }: { locale: string; type: ContentType; entities: ResolvedEntity[] }) {
   const seg = TYPE_SEGMENT[type];
-  const label = { tutorials: t(locale, "nav_tutorials"), tools: t(locale, "nav_tools"), prompts: t(locale, "nav_prompts"), collections: t(locale, "nav_collections") }[seg] ?? seg;
+  const label = ({
+    tutorials: t(locale, "nav_tutorials"), tools: t(locale, "nav_tools"), prompts: t(locale, "nav_prompts"),
+    collections: t(locale, "nav_collections"), solutions: t(locale, "nav_solutions"),
+    "teach-ai": t(locale, "nav_teach_ai"), workflows: t(locale, "nav_workflows"),
+  } as Record<string, string>)[seg] ?? seg;
   return (
     <div style={{ padding: "2.5rem 0" }}>
       <h1 style={{ fontSize: "2rem", fontWeight: 700, letterSpacing: "-0.02em", marginBottom: "1.25rem" }}>{label}</h1>
@@ -106,28 +110,91 @@ export function HubView({ locale, type, entities }: { locale: string; type: Cont
   );
 }
 
-export function HomeView({ locale, featured }: { locale: string; featured: ResolvedEntity[] }) {
+function SectionHead({ title, sub, cta }: { title: string; sub?: string; cta?: React.ReactNode }) {
   return (
-    <div>
-      <section style={{ padding: "4rem 0 2rem" }}>
-        <span style={{ fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--brand-primary)" }}>NALU</span>
-        <h1 style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.12, margin: "0.75rem 0 0", maxWidth: "18ch", textWrap: "balance" }}>
-          {t(locale, "home_intro")}
-        </h1>
-        <p style={{ marginTop: "1rem", color: "var(--text-secondary)", maxWidth: "56ch", fontSize: "1.1rem" }}>
-          Brand identity is pending; this is the reusable platform running on the pilot dataset.
-        </p>
-        <div style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          <Link href={hubPath(locale, "tutorials")} style={{ padding: "var(--button-padding-y) var(--button-padding-x)", borderRadius: "var(--button-radius)", background: "var(--brand-primary)", color: "var(--brand-on)", textDecoration: "none", fontWeight: 500 }}>{t(locale, "nav_tutorials")}</Link>
-          <Link href={hubPath(locale, "tools")} style={{ padding: "var(--button-padding-y) var(--button-padding-x)", borderRadius: "var(--button-radius)", border: "1px solid var(--border-strong)", color: "var(--text-primary)", textDecoration: "none", fontWeight: 500 }}>{t(locale, "nav_tools")}</Link>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "1rem", marginBottom: "1rem", flexWrap: "wrap" }}>
+      <div>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, letterSpacing: "-0.02em", margin: 0 }}>{title}</h2>
+        {sub ? <p style={{ margin: "0.35rem 0 0", color: "var(--text-secondary)" }}>{sub}</p> : null}
+      </div>
+      {cta}
+    </div>
+  );
+}
+function Pill({ href, children }: { href: string; children: React.ReactNode }) {
+  return <Link href={href} style={{ padding: "0.5rem 0.9rem", borderRadius: 999, border: "1px solid var(--border)", background: "var(--surface)", color: "var(--text-primary)", textDecoration: "none", fontSize: "0.9rem" }}>{children}</Link>;
+}
+function CtaLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return <Link href={href} style={{ color: "var(--brand-primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>{children} →</Link>;
+}
+
+/**
+ * Homepage (Phase 5 §16). Job-first intent finder, NOT a directory or a ChatGPT
+ * clone. The hero is a plain GET form to /search (an intent finder), followed by
+ * the product layers. Editorial style, neutral tokens (§21).
+ */
+export function HomeView({ locale, prompts = [], workflows = [], tools = [] }: {
+  locale: string; prompts?: ResolvedEntity[]; workflows?: ResolvedEntity[]; tools?: ResolvedEntity[];
+}) {
+  const q = (s: string) => `/${locale}/search?q=${encodeURIComponent(s)}`;
+  const examples = [t(locale, "ex_email"), t(locale, "ex_present"), t(locale, "ex_research"), t(locale, "ex_analyze")];
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "3.5rem", paddingBottom: "3rem" }}>
+      {/* HERO — intent finder */}
+      <section style={{ padding: "3.5rem 0 0.5rem" }}>
+        <h1 style={{ fontSize: "clamp(2rem,5vw,3rem)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, margin: 0, maxWidth: "16ch", textWrap: "balance" }}>{t(locale, "hero_title")}</h1>
+        <p style={{ marginTop: "0.9rem", color: "var(--text-secondary)", fontSize: "1.15rem" }}>{t(locale, "hero_sub")}</p>
+        <form action={`/${locale}/search`} method="get" role="search" style={{ marginTop: "1.1rem", display: "flex", gap: "0.5rem", maxWidth: 620, flexWrap: "wrap" }}>
+          <input name="q" placeholder={t(locale, "hero_placeholder")} aria-label={t(locale, "hero_sub")} style={{ flex: "1 1 320px", minHeight: 48, padding: "0 1rem", borderRadius: 12, border: "1px solid var(--border-strong, var(--border))", background: "var(--background)", color: "var(--text-primary)", fontSize: "1rem" }} />
+          <button type="submit" style={{ minHeight: 48, padding: "0 1.3rem", borderRadius: 12, background: "var(--brand-primary)", color: "var(--brand-on,#fff)", border: "none", fontWeight: 700, cursor: "pointer" }}>{t(locale, "hero_go")}</button>
+        </form>
+        <div style={{ marginTop: "0.9rem", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+          {examples.map((e) => <Pill key={e} href={q(e)}>{e}</Pill>)}
         </div>
       </section>
-      {featured.length ? (
-        <section style={{ paddingBottom: "3rem" }}>
-          <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "1rem" }}>{t(locale, "related")}</h2>
-          <CardGrid entities={featured} />
+
+      {/* PROMPTS */}
+      <section>
+        <SectionHead title={t(locale, "sec_prompts_title")} sub={t(locale, "sec_prompts_sub")} cta={<CtaLink href={hubPath(locale, "prompts")}>{t(locale, "sec_prompts_cta")}</CtaLink>} />
+        {prompts.length ? <CardGrid entities={prompts} /> : (
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+            {[t(locale, "ex_email"), t(locale, "ex_present"), t(locale, "ex_research")].map((e) => <Pill key={e} href={q(e)}>{e}</Pill>)}
+          </div>
+        )}
+      </section>
+
+      {/* TEACH AI — signature concept */}
+      <section>
+        <SectionHead title={t(locale, "sec_teach_title")} sub={t(locale, "sec_teach_sub")} cta={<CtaLink href={hubPath(locale, "teach-ai")}>{t(locale, "sec_teach_cta")}</CtaLink>} />
+        <div style={{ display: "grid", gap: "0.75rem", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))" }}>
+          {[["email style", "Teach AI your email style"], ["brand voice", "Teach AI your brand voice"], ["proposal style", "Teach AI your proposal style"], ["how you communicate", "Teach AI how you communicate"]].map(([k, label]) => (
+            <Link key={k} href={q(`teach ai ${k}`)} style={{ border: "1px solid var(--border)", borderRadius: "var(--card-radius,12px)", padding: "1rem 1.1rem", textDecoration: "none", color: "inherit", background: "var(--card-bg,var(--surface))", fontWeight: 600 }}>{label} →</Link>
+          ))}
+        </div>
+      </section>
+
+      {/* WORKFLOWS */}
+      {workflows.length ? (
+        <section>
+          <SectionHead title={t(locale, "sec_workflows_title")} sub={t(locale, "sec_workflows_sub")} cta={<CtaLink href={hubPath(locale, "workflows")}>{t(locale, "sec_workflows_cta")}</CtaLink>} />
+          <CardGrid entities={workflows} />
         </section>
       ) : null}
+
+      {/* TOOLS — small curated set */}
+      {tools.length ? (
+        <section>
+          <SectionHead title={t(locale, "sec_tools_title")} sub={t(locale, "sec_tools_sub")} cta={<CtaLink href={hubPath(locale, "tools")}>{t(locale, "sec_tools_cta")}</CtaLink>} />
+          <CardGrid entities={tools} />
+        </section>
+      ) : null}
+
+      {/* FREE RESOURCE — utility → resource → email (§23) */}
+      <section style={{ border: "1px solid var(--border)", borderRadius: 16, padding: "1.5rem 1.6rem", background: "var(--surface)" }}>
+        <h2 style={{ margin: 0, fontSize: "1.3rem", fontWeight: 700 }}>{t(locale, "resource_title")}</h2>
+        <p style={{ margin: "0.4rem 0 1rem", color: "var(--text-secondary)" }}>{t(locale, "resource_sub")}</p>
+        <Link href={`/${locale}/resources`} style={{ display: "inline-block", padding: "0.65rem 1.3rem", borderRadius: 999, background: "var(--brand-primary)", color: "var(--brand-on,#fff)", textDecoration: "none", fontWeight: 700 }}>{t(locale, "resource_cta")}</Link>
+      </section>
     </div>
   );
 }
